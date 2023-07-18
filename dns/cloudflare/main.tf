@@ -42,7 +42,7 @@ resource "cloudflare_record" "hosts" {
 
 resource "cloudflare_record" "domain" {
   zone_id = local.zone_id
-  name    = var.domain
+  name    = "sys.goodacre.name"
   value   = element(var.public_ips, 0)
   type    = "A"
   proxied = true
@@ -53,7 +53,7 @@ resource "cloudflare_record" "wildcard" {
 
   zone_id = local.zone_id
   name    = "*"
-  value   = var.domain
+  value   = "sys.goodacre.name"
   type    = "CNAME"
   proxied = false
 }
